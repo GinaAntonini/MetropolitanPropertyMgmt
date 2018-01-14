@@ -12,11 +12,36 @@ namespace MetropolitanPropertyMgmt
 
     public class Company
     {
+        protected string _name;
+        protected DateTime _createdOn;
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+        }
+
+        public DateTime CreatedOn
+        {
+            get
+            {
+                return _createdOn;
+            }
+        }
         /*
-            Some readonly properties
-        */
-        public string Name { get; }
-        public DateTime CreatedOn { get; }
+                Create a constructor method that accepts two arguments:
+                1. The name of the company
+                2. The date it was created
+
+                   The constructor will set the value of the public properties
+            */
+        public Company(string Name, DateTime CreatedOn)
+        {
+            _name = Name;
+            _createdOn = CreatedOn;
+        }
 
         // Create a property for holding a list of current employees
         public void EmployeeList()
@@ -35,12 +60,5 @@ namespace MetropolitanPropertyMgmt
             employees.Remove(new Employee() { FirstName = "Jacie", LastName = "Rush", JobTitle = "Administrative Assistant", StartDate = "2/1/18" });
         }
 
-    /*
-        Create a constructor method that accepts two arguments:
-            1. The name of the company
-            2. The date it was created
-
-        The constructor will set the value of the public properties
-    */
-}
     }
+}
